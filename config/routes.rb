@@ -5,5 +5,7 @@ Rails.application.routes.draw do
    root to: 'devise/sessions#new'
   end
 
-  resources :questions
+  resources :questions do
+    resources :answers
+  end
 end

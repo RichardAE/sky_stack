@@ -1,1 +1,8 @@
-<%= @question.inspect %>
+<%= @question.title %><br>
+<%= @question.text %><br>
+
+<%= render 'answers/new' %><br>
+
+<% @question.answers.each do |answer| %>
+  <%= answer.text %><br>
+<% end %>

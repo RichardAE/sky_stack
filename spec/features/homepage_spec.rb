@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-feature 'Homepage', :js do
+describe 'Homepage', :js do
   scenario 'visiting the homepage' do
     visit root_path
 
     expect(page).to have_content 'Sky Stack'
+    expect(page).to have_content 'Log in'
   end
 end

@@ -3,8 +3,6 @@
 
 <%= render 'comments/form', commentable: answer, parent: @question %><br>
 
-<%= content_tag(:div, id: "answer_#{answer.id}_comments_list") do %>
-  <% answer.comments.each do |comment| %>
-    <%= render comment %><br>
-  <% end %>
+<%= content_tag(:div, id: "answer_#{answer.id}_comments") do %>
+  <%= render answer.comments %><br>
 <% end %>

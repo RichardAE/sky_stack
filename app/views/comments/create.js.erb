@@ -1,2 +1,2 @@
-$('#<%= build_commentable_id(commentable: @commentable, type: 'list')%>').append('<%= j render 'comments/comment', comment: @comment %>');
+$('#<%= build_commentable_id(commentable: @commentable, type: nil)%>').append('<%= j render 'comments/comment', comment: @comment %>');
 $('#<%= build_commentable_id(commentable: @commentable, type: 'text')%>').val('');

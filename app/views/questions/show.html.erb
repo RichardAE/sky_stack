@@ -7,17 +7,15 @@
 
 
   Comments:<br>
-  <%= content_tag(:div, id: "question_#{@question.id}_comments_list") do %>
-    <% @question.comments.each do |comment| %>
-     <%= render comment %><br>
-    <% end %>
+  <%= content_tag(:div, id: "question_#{@question.id}_comments") do %>
+    <%= render @question.comments %>
   <% end %>
 
   <%= render 'comments/form', commentable: @question, parent: nil %><br>
 
   <%= render 'answers/form' %><br>
 
-  <% @question.answers.each do |answer| %>
-    <%= render answer %><br>
+  <%= content_tag(:div, id: "question_#{@question.id}_answers") do %>
+    <%= render @question.answers %>
   <% end %>
 <% end %>

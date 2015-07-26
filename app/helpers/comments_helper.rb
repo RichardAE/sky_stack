@@ -4,6 +4,8 @@ module CommentsHelper
   end
 
   def build_commentable_id(commentable:, type:)
-    "#{commentable.class.name.downcase}_#{commentable.id}_comments_#{type}"
+    id = "#{commentable.class.name.downcase}_#{commentable.id}_comments"
+    id.concat("_#{type}") unless type.nil?
+    id
   end
 end

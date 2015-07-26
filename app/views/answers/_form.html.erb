@@ -1,3 +1,5 @@
+<%= render 'shared/error_messages', object: @answer if @answer.errors.any? %>
+
 <%= form_for([@question, @answer]) do |form| %>
   <%= form.text_field :text %><br>
   <%= form.submit %>

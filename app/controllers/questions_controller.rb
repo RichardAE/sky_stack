@@ -11,11 +11,14 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = current_user.questions.new(question_params)
+    @question = current_user.questions.new(question_params)
 
-    if question.save
+    if @question.save
       flash[:success] = 'Your question was submitted successfully'
-      redirect_to question_path(question)
+      redirect_to question_path(@question)
+    else
+      flash[:danger] = 'There was a problem with your question'
+      render 'new'
     end
   end
 
@@ -30,6 +33,9 @@ class QuestionsController < ApplicationController
     if @question.update(question_params)
       flash[:success] = 'Your question was modified successfully'
       redirect_to question_path(@question)
+    else
+      flash[:danger] = 'There was a problem with your question'
+      render 'edit'
     end
   end
 

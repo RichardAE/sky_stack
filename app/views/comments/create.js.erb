@@ -1,4 +1,6 @@
-$('#<%= build_commentable_id(commentable: @commentable, type: nil)%>').append('<%= j render 'comments/comment',
+<% unless @comment.errors.any? %>
+  $('#<%= build_commentable_id(commentable: @commentable, type: nil)%>').append('<%= j render 'comments/comment',
                                                                               comment: @comment,
                                                                               commentable: @commentable %>');
-$('#<%= build_commentable_id(commentable: @commentable, type: 'text')%>').val('');
+  $('#<%= build_commentable_id(commentable: @commentable, type: 'text')%>').val('');
+<% end %>

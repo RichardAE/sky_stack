@@ -8,16 +8,22 @@ describe 'Answers', :js do
 
   before(:each) do
     login(user)
+    visit question_path(question)
   end
 
   scenario 'adding an answer' do
-    visit question_path(question)
-
     fill_in  :answer_text, with: answer_text
     click_on 'Create Answer'
 
     expect(page).to have_content 'Your answer was submitted successfully'
     expect(page).to have_content answer_text
+  end
+
+  scenario 'adding a blank answer' do
+    click_on 'Create Answer'
+
+    expect(page).to have_content 'There was a problem with your answer'
+    expect(page).to have_content 'Text is too short'
   end
 
   context 'existing answer' do

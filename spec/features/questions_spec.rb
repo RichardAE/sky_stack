@@ -20,6 +20,14 @@ describe 'Questions', :js do
     expect(page).to have_content question_text
   end
 
+  scenario 'adding a blank question' do
+    click_on 'Create Question'
+
+    expect(page).to have_content 'There was a problem with your question'
+    expect(page).to have_content 'Title is too short'
+    expect(page).to have_content 'Text is too short'
+  end
+
   context 'existing question' do
     let(:question) { create(:question) }
 

@@ -4,11 +4,14 @@ class AnswersController < ApplicationController
   before_action :find_answer, except: :create
 
   def create
-    answer = @question.answers.new(answer_params)
+    @answer = @question.answers.new(answer_params)
 
-    if answer.save
+    if @answer.save
       flash[:success] = 'Your answer was submitted successfully'
       redirect_to question_path(@question)
+    else
+      flash[:danger] = 'There was a problem with your answer'
+      render 'new'
     end
   end
 
@@ -19,6 +22,9 @@ class AnswersController < ApplicationController
     if @answer.update(answer_params)
       flash[:success] = 'Your answer was modified successfully'
       redirect_to question_path(@answer.question)
+    else
+      flash[:danger] = 'There was a problem with your answer'
+      render 'edit'
     end
   end
 

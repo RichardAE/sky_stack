@@ -22,9 +22,13 @@ describe 'Answers', :js do
 
   context 'existing answer' do
     let(:question) { create(:question_with_answer) }
+    let(:answer)   { question.answers.first        }
+
+    before(:each) do
+      visit question_path(question)
+    end
 
     scenario 'editing an answer' do
-      visit question_path(question)
       click_on 'Edit Answer'
 
       fill_in  :answer_text, with: answer_text
@@ -32,6 +36,15 @@ describe 'Answers', :js do
 
       expect(page).to have_content 'Your answer was modified successfully'
       expect(page).to have_content answer_text
+    end
+
+    scenario 'deleting an answer' do
+      within "#answer_#{answer.id}" do
+        click_on "Delete"
+      end
+
+      expect(page).to     have_content 'Your answer was deleted successfully'
+      expect(page).to_not have_content answer.text
     end
   end
 end

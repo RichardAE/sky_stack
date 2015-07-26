@@ -23,8 +23,11 @@ describe 'Questions', :js do
   context 'existing question' do
     let(:question) { create(:question) }
 
-    scenario 'editing a question' do
+    before(:each) do
       visit question_path(question)
+    end
+
+    scenario 'editing a question' do
       click_on 'Edit Question'
 
       fill_in  :question_title, with: question_title
@@ -34,6 +37,15 @@ describe 'Questions', :js do
       expect(page).to have_content 'Your question was modified successfully'
       expect(page).to have_content question_title
       expect(page).to have_content question_text
+    end
+
+    scenario 'deleting a question' do
+      within "#question_#{question.id}" do
+        click_on "Delete"
+      end
+
+      expect(page).to     have_content 'Your question was deleted successfully'
+      expect(page).to_not have_content question.title
     end
   end
 end

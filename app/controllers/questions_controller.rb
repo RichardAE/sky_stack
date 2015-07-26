@@ -1,6 +1,10 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_question, except: [:new, :create]
+  before_action :find_question, except: [:index, :new, :create]
+
+  def index
+    @questions = Question.order(created_at: :desc)
+  end
 
   def new
     @question = Question.new
@@ -26,6 +30,13 @@ class QuestionsController < ApplicationController
     if @question.update(question_params)
       flash[:success] = 'Your question was modified successfully'
       redirect_to question_path(@question)
+    end
+  end
+
+  def destroy
+    if @question.destroy
+      flash[:success] = 'Your question was deleted successfully'
+      redirect_to questions_path
     end
   end
 

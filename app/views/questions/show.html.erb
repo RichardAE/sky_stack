@@ -1,20 +1,23 @@
-<%= @question.title %><br>
-<%= @question.text %><br>
+<%= div_for(@question) do %>
+  <%= @question.title %><br>
+  <%= @question.text %><br>
 
-<%= link_to 'Edit Question', edit_question_path(@question) %><br>
+  <%= link_to 'Edit Question', edit_question_path(@question) %><br>
+  <%= link_to "Delete", question_path(@question), method: :delete %>
 
 
-Comments:<br>
-<%= content_tag(:div, id: "question_#{@question.id}_comments_list") do %>
-  <% @question.comments.each do |comment| %>
-    <%= render comment %><br>
+  Comments:<br>
+  <%= content_tag(:div, id: "question_#{@question.id}_comments_list") do %>
+    <% @question.comments.each do |comment| %>
+     <%= render comment %><br>
+    <% end %>
   <% end %>
-<% end %>
 
-<%= render 'comments/form', commentable: @question, parent: nil %><br>
+  <%= render 'comments/form', commentable: @question, parent: nil %><br>
 
-<%= render 'answers/form' %><br>
+  <%= render 'answers/form' %><br>
 
-<% @question.answers.each do |answer| %>
-  <%= render answer %><br>
+  <% @question.answers.each do |answer| %>
+    <%= render answer %><br>
+  <% end %>
 <% end %>

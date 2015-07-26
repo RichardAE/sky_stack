@@ -2384,8 +2384,8 @@ span.date i,span.comment i {
 /* footer */
 #footer {
 	background-color: #2f3239;
-	margin-top: 70px;
-	padding: 50px 0 30px;
+	margin-top: 30px;
+	padding: 20px 0 20px;
 }
 #footer .widget {
 	color: #c2c8d4;

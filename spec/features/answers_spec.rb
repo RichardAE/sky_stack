@@ -21,8 +21,8 @@ describe 'Answers', :js do
   end
 
   context 'existing answer' do
-    let(:question) { create(:question_with_answer) }
-    let(:answer)   { question.answers.first        }
+    let(:question) { create(:question, answers_count: 1) }
+    let(:answer)   { question.answers.first              }
 
     before(:each) do
       visit question_path(question)

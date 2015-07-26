@@ -6,6 +6,6 @@
   <%= render 'comments/form', commentable: answer, parent: @question %><br>
 
   <%= content_tag(:div, id: "answer_#{answer.id}_comments") do %>
-    <%= render answer.comments %><br>
+    <%= render answer.comments, commentable: answer %><br>
   <% end %>
 <% end %>

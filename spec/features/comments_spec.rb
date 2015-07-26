@@ -14,7 +14,9 @@ describe 'Comments', :js do
       comment_text = Faker::Lorem.sentence
 
       fill_in  "question_#{question.id}_comments_text", with: comment_text
-      click_on "question_#{question.id}_comments_submit"
+      within "#question_#{question.id}_comments_form" do
+        click_on 'Create Comment'
+      end
 
       expect(page).to have_content comment_text
       expect(find_field("question_#{question.id}_comments_text").value).to eq ''
@@ -23,6 +25,7 @@ describe 'Comments', :js do
 
   context 'on an answer' do
     let(:question) { create(:question_with_answer) }
+    let(:answer)   { question.answers.first        }
 
     scenario 'add a comment' do
       login(user)
@@ -30,11 +33,13 @@ describe 'Comments', :js do
 
       comment_text = Faker::Lorem.sentence
 
-      fill_in  "answer_#{question.answers.first.id}_comments_text", with: comment_text
-      click_on "answer_#{question.answers.first.id}_comments_submit"
+      fill_in  "answer_#{answer.id}_comments_text", with: comment_text
+      within "#answer_#{answer.id}_comments_form" do
+        click_on 'Create Comment'
+      end
 
       expect(page).to have_content comment_text
-      expect(find_field("answer_#{question.answers.first.id}_comments_text").value).to eq ''
+      expect(find_field("answer_#{answer.id}_comments_text").value).to eq ''
     end
   end
 

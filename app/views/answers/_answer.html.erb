@@ -1,4 +1,5 @@
 <%= answer.text %><br>
+<%= link_to 'Edit Answer', edit_question_answer_path(@question, answer) %><br>
 
 <%= render 'comments/form', commentable: answer, parent: @question %><br>
 

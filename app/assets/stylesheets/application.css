@@ -11,5 +11,8 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require template
+ *= require blue_theme
+ *= require responsive
  *= require_self
  */

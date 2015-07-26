@@ -12,4 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
+//= require jquery-ui-1.10.3.custom.min
+//= require jquery.easing.1.3.min
+//= require html5
+//= require jflickrfeed.min
+//= require jquery.inview.min
+//= require jquery.tipsy
+//= require tabs
+//= require jquery.flexslider
+//= require jquery.prettyPhoto
+//= require jquery.carouFredSel-6.2.1-packed
+//= require jquery.scrollTo
+//= require jquery.nav
+//= require tags
+//= require jquery.bxslider.min.js
+//= require custom.js
 //= require_tree .

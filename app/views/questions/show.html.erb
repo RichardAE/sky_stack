@@ -1,6 +1,9 @@
 <%= @question.title %><br>
 <%= @question.text %><br>
 
+<%= link_to 'Edit Question', edit_question_path(@question) %><br>
+
+
 Comments:<br>
 <%= content_tag(:div, id: "question_#{@question.id}_comments_list") do %>
   <% @question.comments.each do |comment| %>

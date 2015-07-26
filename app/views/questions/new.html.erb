@@ -1,9 +1,4 @@
 Enter your question<br>
 
-<%= form_for(@question) do |form| %>
-  <%= form.text_field :title %><br>
-  <%= form.text_area :text %><br>
-  <%= form.submit 'Submit Question' %>
-<% end %>
-
+<%= render 'form' %>
 

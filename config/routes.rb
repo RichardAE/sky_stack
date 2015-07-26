@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   end
 
   resources :questions do
-    resources :answers
+    resources :comments
+
+    resources :answers do
+      resources :comments
+    end
   end
 end

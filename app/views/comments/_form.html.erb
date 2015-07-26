@@ -1,0 +1,7 @@
+<%= form_for(build_commentable_path(commentable: commentable, parent: parent),
+             html: { id: build_commentable_id(commentable: commentable, type: 'form') },
+             remote: true) do |form| %>
+
+  <%= form.text_field :text, id: build_commentable_id(commentable: commentable, type: 'text') %>
+  <%= form.submit "Add Comment", id: build_commentable_id(commentable: commentable, type: 'submit')  %>
+<% end %>

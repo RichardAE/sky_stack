@@ -1,8 +1,17 @@
 <%= @question.title %><br>
 <%= @question.text %><br>
 
-<%= render 'answers/new' %><br>
+Comments:<br>
+<%= content_tag(:div, id: "question_#{@question.id}_comments_list") do %>
+  <% @question.comments.each do |comment| %>
+    <%= render comment %><br>
+  <% end %>
+<% end %>
+
+<%= render 'comments/form', commentable: @question, parent: nil %><br>
+
+<%= render 'answers/form' %><br>
 
 <% @question.answers.each do |answer| %>
-  <%= answer.text %><br>
+  <%= render answer %><br>
 <% end %>

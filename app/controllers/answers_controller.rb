@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
 
     if @answer.save
       flash[:success] = 'Your answer was submitted successfully'
-      redirect_to question_path(@question)
+      redirect_to @question
     else
       flash[:danger] = 'There was a problem with your answer'
       render 'new'
@@ -21,7 +21,7 @@ class AnswersController < ApplicationController
   def update
     if @answer.update(answer_params)
       flash[:success] = 'Your answer was modified successfully'
-      redirect_to question_path(@question)
+      redirect_to @question
     else
       flash[:danger] = 'There was a problem with your answer'
       render 'edit'
@@ -31,7 +31,7 @@ class AnswersController < ApplicationController
   def destroy
     if owner?(object: @answer) && @answer.destroy
       flash[:success] = 'Your answer was deleted successfully'
-      redirect_to question_path(@question)
+      redirect_to @question
     end
   end
 

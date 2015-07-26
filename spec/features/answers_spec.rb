@@ -27,7 +27,7 @@ describe 'Answers', :js do
   end
 
   context 'existing answer' do
-    let(:question) { create(:question, answers_count: 1) }
+    let(:question) { create(:question, user: user, answers_count: 1) }
     let(:answer)   { question.answers.first              }
 
     before(:each) do

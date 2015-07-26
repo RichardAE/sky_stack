@@ -10,7 +10,7 @@ describe 'Comments', :js do
   end
 
   context 'on a question' do
-    let(:question) { create(:question, comments_count: 1 ) }
+    let(:question) { create(:question, user: user, comments_count: 1 ) }
 
     scenario 'add a comment' do
       comment_text = Faker::Lorem.sentence
@@ -36,7 +36,7 @@ describe 'Comments', :js do
   end
 
   context 'on an answer' do
-    let(:question) { create(:question, answers_count: 1, answers_comments_count: 1) }
+    let(:question) { create(:question, user: user, answers_count: 1, answers_comments_count: 1) }
     let(:answer)   { question.answers.first        }
 
     scenario 'add a comment' do

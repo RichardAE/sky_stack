@@ -40,7 +40,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    if @question.destroy
+    if owner?(object: @question) && @question.destroy
       flash[:success] = 'Your question was deleted successfully'
       redirect_to questions_path
     end

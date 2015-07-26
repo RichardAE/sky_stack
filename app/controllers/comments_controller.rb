@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
+    @comment.destroy if owner?(object: @comment)
   end
 
   private

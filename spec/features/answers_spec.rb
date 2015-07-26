@@ -28,7 +28,7 @@ describe 'Answers', :js do
 
   context 'existing answer' do
     let(:question) { create(:question, user: user, answers_count: 1) }
-    let(:answer)   { question.answers.first              }
+    let(:answer)   { question.answers.first                          }
 
     before(:each) do
       visit question_path(question)

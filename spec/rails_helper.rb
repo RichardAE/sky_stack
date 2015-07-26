@@ -70,4 +70,8 @@ end
 
 Capybara.server_port = 4000
 Capybara.always_include_port = true
-Capybara.javascript_driver = :selenium
+Capybara.javascript_driver = :webkit #:selenium
+
+Capybara::Webkit.configure do |config|
+  config.allow_url('fonts.googleapis.com/*')
+end

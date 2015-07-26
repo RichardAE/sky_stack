@@ -891,11 +891,6 @@ jQuery(document).ready(function($) {
 	/* Page load */
 
 	jQuery(window).load(function() {
-
-		/* Loader */
-
-		jQuery(".loader").fadeOut(500);
-
 		/* Login panel slideup */
 
 		jQuery(".login-panel").slideUp(500);

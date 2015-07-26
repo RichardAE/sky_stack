@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
   has_many :questions, dependent: :destroy
   has_many :answers, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  validates_length_of :user_name, minimum: 5, allow_blank: false
 end

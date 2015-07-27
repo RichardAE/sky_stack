@@ -11,7 +11,7 @@ describe 'Questions', :js do
       login(user)
     end
 
-    scenario 'adding a question' do
+    scenario 'add question' do
       fill_in :question_title, with: question_title
       fill_in :question_text, with: question_text
       click_on 'Create Question'
@@ -21,7 +21,7 @@ describe 'Questions', :js do
       expect(page).to have_content question_text
     end
 
-    scenario 'adding a blank question' do
+    scenario 'add blank question' do
       click_on 'Create Question'
 
       expect(page).to have_content 'There was a problem with your question'
@@ -39,7 +39,7 @@ describe 'Questions', :js do
         visit question_path(question)
       end
 
-      scenario 'editing a question' do
+      scenario 'edit question' do
         click_on 'Edit Question'
 
         fill_in  :question_title, with: question_title
@@ -51,7 +51,7 @@ describe 'Questions', :js do
         expect(page).to have_content question_text
       end
 
-      scenario 'deleting a question' do
+      scenario 'delete question' do
         within "#question_#{question.id}" do
           click_on "Delete"
         end
@@ -69,7 +69,7 @@ describe 'Questions', :js do
         visit question_path(question)
       end
 
-      scenario 'viewing the question' do
+      scenario 'view the question' do
         expect(page).to_not have_content('Edit Question')
         expect(page).to_not have_content('Delete')
       end

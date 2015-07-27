@@ -9,10 +9,10 @@ describe 'Comments', :js do
     visit question_path(question)
   end
 
-  context 'on a question' do
+  context 'question' do
     let(:question) { create(:question, user: user, comments_count: 1 ) }
 
-    scenario 'add a comment' do
+    scenario 'add comment' do
       comment_text = Faker::Lorem.sentence
 
       fill_in  "question_#{question.id}_comments_text", with: comment_text
@@ -24,7 +24,7 @@ describe 'Comments', :js do
       expect(find_field("question_#{question.id}_comments_text").value).to eq ''
     end
 
-    scenario 'deleting a comment' do
+    scenario 'delete comment' do
       comment_text = question.comments.first.text
 
       within "#comment_#{question.comments.first.id}" do
@@ -35,11 +35,11 @@ describe 'Comments', :js do
     end
   end
 
-  context 'on an answer' do
+  context 'answer' do
     let(:question) { create(:question, user: user, answers_count: 1, answers_comments_count: 1) }
     let(:answer)   { question.answers.first        }
 
-    scenario 'add a comment' do
+    scenario 'add comment' do
       comment_text = Faker::Lorem.sentence
 
       fill_in  "answer_#{answer.id}_comments_text", with: comment_text
@@ -51,7 +51,7 @@ describe 'Comments', :js do
       expect(find_field("answer_#{answer.id}_comments_text").value).to eq ''
     end
 
-    scenario 'deleting a comment' do
+    scenario 'delete comment' do
       comment_text = answer.comments.first.text
 
       within "#comment_#{answer.comments.first.id}" do

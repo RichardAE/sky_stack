@@ -11,7 +11,7 @@ describe 'Answers', :js do
     visit question_path(question)
   end
 
-  scenario 'adding an answer' do
+  scenario 'add answer' do
     fill_in  :answer_text, with: answer_text
     click_on 'Create Answer'
 
@@ -19,7 +19,7 @@ describe 'Answers', :js do
     expect(page).to have_content answer_text
   end
 
-  scenario 'adding a blank answer' do
+  scenario 'add blank answer' do
     click_on 'Create Answer'
 
     expect(page).to have_content 'There was a problem with your answer'
@@ -34,7 +34,7 @@ describe 'Answers', :js do
       visit question_path(question)
     end
 
-    scenario 'editing an answer' do
+    scenario 'edit answer' do
       click_on 'Edit Answer'
 
       fill_in  :answer_text, with: answer_text
@@ -44,7 +44,7 @@ describe 'Answers', :js do
       expect(page).to have_content answer_text
     end
 
-    scenario 'deleting an answer' do
+    scenario 'delete answer' do
       within "#answer_#{answer.id}" do
         click_on "Delete"
       end

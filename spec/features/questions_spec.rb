@@ -53,7 +53,7 @@ describe 'Questions', :js do
 
       scenario 'delete question' do
         within "#question_#{question.id}" do
-          click_on "Delete"
+          click_on 'Delete'
         end
 
         expect(page).to     have_content 'Your question was deleted successfully'

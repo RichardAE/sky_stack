@@ -1,4 +1,4 @@
 <%= div_for(comment) do %>
   <%= comment.text %><br>
-  <%= link_to "Delete", question_comment_path(commentable, comment), method: :delete, remote: true if owner?(object: comment) %>
+  <%= link_to 'Delete', question_comment_path(commentable, comment), method: :delete, remote: true if owner?(object: comment) %>
 <% end %>

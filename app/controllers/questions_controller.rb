@@ -14,16 +14,15 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.new(question_params)
 
     if @question.save
-      flash[:success] = 'Your question was submitted successfully'
-      redirect_to @question
+      redirect_to @question, flash: { success: 'Your question was submitted successfully' }
     else
       flash[:danger] = 'There was a problem with your question'
-      render 'new'
+      render :new
     end
   end
 
   def show
-    @answer   = Answer.new
+    @answer = Answer.new
   end
 
   def edit
@@ -31,18 +30,16 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      flash[:success] = 'Your question was modified successfully'
-      redirect_to @question
+      redirect_to @question, flash: { success: 'Your question was modified successfully' }
     else
       flash[:danger] = 'There was a problem with your question'
-      render 'edit'
+      render :edit
     end
   end
 
   def destroy
     if owner?(object: @question) && @question.destroy
-      flash[:success] = 'Your question was deleted successfully'
-      redirect_to questions_path
+      redirect_to questions_path, flash: { success: 'Your question was deleted successfully' }
     end
   end
 

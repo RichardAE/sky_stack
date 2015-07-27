@@ -16,7 +16,7 @@
     </header><!-- End header -->
 
     <section class="container main-content">
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) if user_signed_in? %>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete) if user_signed_in? %>
 
       <%= render 'shared/flash_messages' %>
 

@@ -1,4 +1,5 @@
 <%= div_for(comment) do %>
-  <%= comment.text %><br>
-  <%= link_to "Delete", question_comment_path(commentable, comment), method: :delete, remote: true if owner?(object: comment) %>
+  <%= comment.text %> <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.user_name %>
+  - <%= link_to "Delete", question_comment_path(commentable, comment), method: :delete,
+    remote: true if owner?(object: comment) %>
 <% end %>

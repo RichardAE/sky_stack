@@ -9,6 +9,7 @@ describe 'Questions', :js do
   context 'new question' do
     before(:each) do
       login(user)
+      click_on 'Ask a Question'
     end
 
     scenario 'add question' do

@@ -1,1 +1,15 @@
-<%= link_to question.title, question_path(question) %><br>
+<article class="question">
+  <h2>
+    <%= link_to question.title, question_path(question) %><br>
+  </h2>
+  <div class="question-inner">
+    <div class="clearfix"></div>
+    <span class="question-date"><i class="icon-time"></i>
+      <%= time_ago_in_words(question.created_at) %> ago by <%= question.user.user_name %>
+    </span>
+    <span class="question-comment"><i class="icon-magic"></i>
+      <%= question.answers.count %> answers
+    </span>
+    <div class="clearfix"></div>
+  </div>
+</article>

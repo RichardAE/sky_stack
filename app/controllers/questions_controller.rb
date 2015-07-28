@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
       flash[:success] = 'Your question was submitted successfully'
       redirect_to @question
     else
-      flash[:danger] = 'There was a problem with your question'
+      flash.now[:danger] = 'There was a problem with your question'
       render 'new'
     end
   end
@@ -34,7 +34,7 @@ class QuestionsController < ApplicationController
       flash[:success] = 'Your question was modified successfully'
       redirect_to @question
     else
-      flash[:danger] = 'There was a problem with your question'
+      flash.now[:danger] = 'There was a problem with your question'
       render 'edit'
     end
   end

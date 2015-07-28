@@ -1,26 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SkyStack</title>
+  <title>Sky Stack</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div id="wrap" class="grid_1200">
-
     <header id="header">
       <section class="container clearfix">
-        <!-- <div class="logo">Sky Stack</a></div> -->
-      </section><!-- End container -->
+			  <div class="logo">
+          <%= link_to(questions_path) do %>
+            <%= image_tag('stack_logo2.png') %>
+          <% end %>
+        </div>
+
+        <% if user_signed_in? %>
+          <nav class="navigation">
+            <ul>
+              <%= content_tag(:li, link_to("Questions", questions_path), class: check_active_page(page: 'questions')) %>
+              <%= content_tag(:li, link_to('Ask a Question', new_question_path), class: check_active_page(page: 'new_question')) %>
+              <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+            </ul>
+          </nav>
+        <% end %>
     </header><!-- End header -->
 
     <section class="container main-content">
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) if user_signed_in? %>
+      <div class="row">
+        <%= content_tag(:div, class: get_container_class) do %>
 
-      <%= render 'shared/flash_messages' %>
+          <%= render 'shared/flash_messages' %>
 
-      <%= yield %>
+          <%= yield %>
+        <% end %>
+
+        <% unless hide_sidebar? %>
+        <aside class="col-md-3 sidebar">
+          <div class="widget widget_stats">
+            <h3 class="widget_title">Stats</h3>
+            <div class="ul_list ul_list-icon-ok">
+              <ul>
+                <li><i class="icon-question-sign"></i><span><%= pluralize(get_content_count(type: 'questions'), 'Question') %></span></li>
+                <li><i class="icon-magic"></i><span><%= pluralize(get_content_count(type: 'answers'), 'Answer') %></span></li>
+              </ul>
+            </div>
+          </div>
+        </aside><!-- End sidebar -->
+      <% end %>
+      </div>
     </section><!-- End container -->
 
     <footer id="footer">

@@ -1,7 +1,13 @@
 <%= render 'shared/error_messages', object: @answer if @answer.errors.any? %>
 
 <%= form_for([@question, @answer]) do |form| %>
-  <%= form.text_field :text %><br>
-  <%= form.submit %>
+  <div id="respond-textarea">
+    <p>
+    <label class="required" for="answer_text">Text<span>*</span></label>
+    <%= form.text_area :text, rows: 8, cols: 58 %>
+    </p>
+  </div>
+  <p class="form-submit">
+    <%= form.submit class: 'button small color' %>
+  </p>
 <% end %>
-

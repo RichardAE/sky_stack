@@ -1,3 +1,23 @@
 .main-content {
-  padding-top: 30px;
+  padding-top: 16px;
 }
+
+.comments-box {
+  margin-top: 20px;
+  padding-top : 10px;
+	border-top: 1px solid #dedede;
+}
+
+.site-title {
+  color: #FFF;
+  font-size: 22px;
+  font-family: 'Verdana';
+}
+
+/* Rails classes */
+
+.new_comment {
+  margin-left: 40px;
+}
+
+

@@ -231,9 +231,10 @@ body {
 }
 /* header */
 #header {
-	height: 26px;
+	height: 88px;
 	position: relative;
 	background-color: #2f3239;
+  padding: 4px 0;
 }
 div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	background-size: 100% 100%;
@@ -253,7 +254,8 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 }
 /* navigation */
 .navigation {
-	float: right;
+	float: left;
+  margin-left: 30px;
 }
 .navigation > ul li {
 	float: left;
@@ -262,7 +264,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	height: 100%;
 	font-size: 14px;
 	font-weight: bold;
-	margin-top: 25px;
+	margin-top: 28px;
 	margin-right: 5px;
 }
 .navigation > ul li:last-child {
@@ -717,7 +719,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	padding: 20px;
 	border: 1px solid #dedede;
 	background: #FFF;
@@ -731,7 +733,6 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 }
 .question-inner {
 	position: relative;
-	margin-left: 101px;
 }
 .question-tab .tabs {
 	margin-bottom: 30px;
@@ -867,7 +868,8 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	position: relative;
 }
 .question h2 {
-	margin: 0 0 30px 101px;
+	margin-left: 0px;
+	margin: 0 0 30px 0px;
 	color: #474D5D;
 	overflow: hidden;
 	font-size: 22px;
@@ -1102,8 +1104,6 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	font-weight: bold;
 }
 .question-desc {
-	margin-bottom: 20px;
-	padding-bottom: 30px;
 	line-height: 22px;
 	font-size: 13px;
 	color: #848991;
@@ -1616,12 +1616,10 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	margin: 0;
 }
 .comment {
-	margin: 0 -20px;
-	border-bottom: 1px solid #dedede;
+	margin: 0 40px;
 }
 .children .comment {
 	margin: 0;
-	border-top: 1px solid #dedede;
 	border-bottom: none;
 }
 .children {

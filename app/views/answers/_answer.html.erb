@@ -2,7 +2,7 @@
   <div class="question-inner">
     <div class="clearfix"></div>
     <div class="question-desc">
-      <%= simple_format(answer.text) %>
+      <%= raw(answer.text.bbcode_to_html) %>
     </div>
     <span class="question-date"><i class="icon-time"></i>
       <%= time_ago_in_words(answer.created_at) %> ago by <em><%= answer.user.user_name %></em>

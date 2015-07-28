@@ -5,13 +5,13 @@
   <div class="question-inner">
     <div class="clearfix"></div>
     <div class="question-desc">
-      <%= simple_format(@question.text) %>
+      <%= raw(@question.text.bbcode_to_html) %>
     </div>
     <span class="question-date"><i class="icon-time"></i>
       <%= time_ago_in_words(@question.created_at) %> ago by <em><%= @question.user.user_name %></em>
     </span>
     <div class="clearfix"></div>
-    <div>
+    <div class="question-links">
       <%= link_to 'Edit Question', edit_question_path(@question) if owner?(object: @question) %><br>
       <%= link_to "Delete", question_path(@question), method: :delete if owner?(object: @question) %>
     </div>

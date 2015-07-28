@@ -1104,6 +1104,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	font-weight: bold;
 }
 .question-desc {
+  padding-bottom: 20px;
 	line-height: 22px;
 	font-size: 13px;
 	color: #848991;

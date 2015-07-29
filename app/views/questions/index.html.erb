@@ -1,1 +1,7 @@
-<%= render @questions %>
+<% if @questions.any? %>
+  <%= render @questions %>
+<% else %>
+<article class="question">
+  No Questions have been added yet.
+</article>
+<% end %>

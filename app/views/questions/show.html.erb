@@ -1,21 +1,41 @@
-<%= div_for(@question) do %>
-  <%= @question.title %><br>
-  <%= @question.text %><br>
+<%= content_tag_for(:article, @question, class: 'single-question question-type-normal') do %>
+  <h2>
+    <%= @question.title %><br>
+  </h2>
+  <div class="question-inner">
+    <div class="clearfix"></div>
+    <div class="question-desc">
+      <%= raw(@question.text.bbcode_to_html) %>
+    </div>
+    <span class="question-date"><i class="icon-time"></i>
+      <%= time_ago_in_words(@question.created_at) %> ago by <em><%= @question.user.user_name %></em>
 
-  <%= link_to 'Edit Question', edit_question_path(@question) if owner?(object: @question) %><br>
-  <%= link_to 'Delete', question_path(@question), method: :delete if owner?(object: @question) %>
+      <% if owner?(object: @question) %>
+        <%= link_to '- Edit Question', edit_question_path(@question), class: 'blue-link small-link' %>
+        <%= link_to '- Delete', question_path(@question), class: 'blue-link small-link', method: :delete,
+                    data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </span>
+    <div class="clearfix"></div>
+    <%= content_tag(:div, id: "question_#{@question.id}_comments", class: 'comments-box') do %>
+      <%= render @question.comments, commentable: @question %>
+    <% end %>
+    <%= render 'comments/form', commentable: @question, parent: nil %><br>
+  </div>
+<% end %>
 
-
-  Comments:<br>
-  <%= content_tag(:div, id: "question_#{@question.id}_comments") do %>
-    <%= render @question.comments, commentable: @question %>
-  <% end %>
-
-  <%= render 'comments/form', commentable: @question, parent: nil %><br>
-
-  <%= render 'answers/form' %><br>
+<% if @question.answers.any? %>
+  <div id="answers_header" class="boxedtitle page-title"><h2><%= pluralize(@question.answers.count, 'answer') %></h2></div>
 
   <%= content_tag(:div, id: "question_#{@question.id}_answers") do %>
     <%= render @question.answers %>
   <% end %>
 <% end %>
+
+<br>
+<div id="respond" class="comment-respond page-content clearfix">
+  <div class="boxedtitle page-title"><h2>Write an Answer</h2></div>
+  <%= render 'answers/form' %><br>
+</div>
+
+

@@ -1,3 +1,49 @@
+/* Not very SCSS'y, it is 2am though.... TODO */
+
 .main-content {
-  padding-top: 30px;
+  padding-top: 16px;
 }
+
+.comments-box {
+  margin-top: 20px;
+	border-top: 1px solid #dedede;
+}
+
+.comments-text-area {
+  margin-top: 10px;
+}
+
+.site-title {
+  color: #FFF;
+  font-size: 22px;
+  font-family: 'Verdana';
+}
+
+.blue-link {
+  font-weight: bold;
+  color: #3498db;
+}
+
+.small-link {
+  font-size: 0.8em;
+}
+
+.comment-date {
+  font-size: 0.7em;
+}
+
+#answers_header {
+  margin-top: 30px;
+}
+
+.answer {
+  margin-top: 20px;
+}
+
+/* Rails classes */
+
+.new_comment {
+  margin-left: 40px;
+}
+
+

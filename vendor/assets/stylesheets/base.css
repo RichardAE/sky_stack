@@ -22,7 +22,7 @@ body {
 .button i {
 	margin-right: 10px;
 }.button.large {	padding: 8px 30px;}.button.medium {	padding: 7px 21px;}.button.small {	padding: 7px 15px;}.button.mini {	padding: 3px 10px;}.f_left {	float: left !important;}.f_right {	float: right !important;}input[type="text"],input[type="password"],input[type="email"],textarea,select {    padding: 8px;    outline: none;    font-size: 13px;
-    font-weight: 600;    margin: 0;    width: 200px;    max-width: 100%;    display: block;    margin-bottom: 20px;    color: #2f3239;
+    font-weight: 600;    margin: 0;  max-width: 100%;    display: block;    margin-bottom: 20px;    color: #2f3239;
 	border: 1px solid #dedede;
 	-moz-transition: border .25s linear, color .25s linear, background-color .25s linear;
 	-webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;

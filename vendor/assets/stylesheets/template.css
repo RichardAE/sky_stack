@@ -10,9 +10,7 @@ url: www.2code.info
 /* Css */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 @import url("base.css");
-@import url("lists.css");
 @import url("bootstrap.min.css");
-@import url("prettyPhoto.css");
 @import url("font-awesome/css/font-awesome.min.css");
 @import url("fontello/css/fontello.css");
 body {
@@ -231,9 +229,10 @@ body {
 }
 /* header */
 #header {
-	height: 26px;
+	height: 88px;
 	position: relative;
 	background-color: #2f3239;
+  padding: 4px 0;
 }
 div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	background-size: 100% 100%;
@@ -253,7 +252,8 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 }
 /* navigation */
 .navigation {
-	float: right;
+	float: left;
+  margin-left: 30px;
 }
 .navigation > ul li {
 	float: left;
@@ -262,7 +262,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	height: 100%;
 	font-size: 14px;
 	font-weight: bold;
-	margin-top: 25px;
+	margin-top: 28px;
 	margin-right: 5px;
 }
 .navigation > ul li:last-child {
@@ -717,7 +717,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	padding: 20px;
 	border: 1px solid #dedede;
 	background: #FFF;
@@ -731,7 +731,6 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 }
 .question-inner {
 	position: relative;
-	margin-left: 101px;
 }
 .question-tab .tabs {
 	margin-bottom: 30px;
@@ -867,7 +866,8 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	position: relative;
 }
 .question h2 {
-	margin: 0 0 30px 101px;
+	margin-left: 0px;
+	margin: 0 0 30px 0px;
 	color: #474D5D;
 	overflow: hidden;
 	font-size: 22px;
@@ -1102,11 +1102,9 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	font-weight: bold;
 }
 .question-desc {
-	margin-bottom: 20px;
-	padding-bottom: 30px;
+  padding-bottom: 20px;
 	line-height: 22px;
 	font-size: 13px;
-	border-bottom: 1px solid #dedede;
 	color: #848991;
 }
 .question-bottom-2 {
@@ -1617,12 +1615,10 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	margin: 0;
 }
 .comment {
-	margin: 0 -20px;
-	border-bottom: 1px solid #dedede;
+	margin: 14px 40px;
 }
 .children .comment {
 	margin: 0;
-	border-top: 1px solid #dedede;
 	border-bottom: none;
 }
 .children {
@@ -2795,6 +2791,7 @@ input[type="checkbox"]:checked::before {
 	width: 17%;
 	margin-right: 1%;
 	margin-top: 9px;
+  padding-bottom: 3px;
 }
 .ask-question .form-description {
 	width: 80%;

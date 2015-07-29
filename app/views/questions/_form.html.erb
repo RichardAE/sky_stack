@@ -1,7 +1,19 @@
 <%= render 'shared/error_messages', object: @question if @question.errors.any? %>
 
 <%= form_for(@question) do |form| %>
-  <%= form.text_field :title %><br>
-  <%= form.text_area :text %><br>
-  <%= form.submit %>
+  <div class="form-inputs clearfix">
+    <label for="question_title" class="required">Question Title<span>*</span></label>
+    <%= form.text_field :title %><br>
+  </div>
+
+  <div id="form-textarea">
+    <label for="question_text" class="required">Question Details<span>*</span></label>
+    <%= form.text_area :text, cols: 58, rows: 10 %><br>
+  </div>
+  <div>
+    ** We currently use BBCode. See the <%= link_to 'reference', 'http://www.bbcode.org/reference.php', class: 'blue-link', target: '_blank' %> for available tags
+  </div>
+  <p class="form-submit">
+    <%= form.submit class: 'button color small' %>
+  </p>
 <% end %>

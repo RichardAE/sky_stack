@@ -27,9 +27,7 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    if owner?(object: @answer) && @answer.destroy
-      redirect_to @question, flash: { success: 'Your answer was deleted successfully' }
-    end
+    redirect_to @question, flash: { success: 'Your answer was deleted successfully' } if owner?(object: @answer) && @answer.destroy
   end
 
   private

@@ -3,7 +3,8 @@
              remote: true) do |form| %>
 
   <div id="form-textarea">
-    <%= form.text_area :text, id: build_commentable_id(commentable: commentable, type: 'text'), cols: 80, rows: 3 %>
+    <%= form.text_area :text, id: build_commentable_id(commentable: commentable, type: 'text'),
+      cols: 80, rows: 3, class: 'comments-text-area' %>
   </div>
   <%= form.submit 'Add Comment', class: 'button color small left' %>
 <% end %>

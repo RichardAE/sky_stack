@@ -7,11 +7,10 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
 
     if @answer.save
-      flash[:success] = 'Your answer was submitted successfully'
-      redirect_to @question
+      redirect_to @question, flash: { success: 'Your answer was submitted successfully' }
     else
       flash.now[:danger] = 'There was a problem with your answer'
-      render 'new'
+      render :new
     end
   end
 
@@ -20,19 +19,15 @@ class AnswersController < ApplicationController
 
   def update
     if @answer.update(answer_params)
-      flash[:success] = 'Your answer was modified successfully'
-      redirect_to @question
+      redirect_to @question, flash: { success: 'Your answer was modified successfully' }
     else
       flash.now[:danger] = 'There was a problem with your answer'
-      render 'edit'
+      render :edit
     end
   end
 
   def destroy
-    if owner?(object: @answer) && @answer.destroy
-      flash[:success] = 'Your answer was deleted successfully'
-      redirect_to @question
-    end
+    redirect_to @question, flash: { success: 'Your answer was deleted successfully' } if owner?(object: @answer) && @answer.destroy
   end
 
   private

@@ -46,7 +46,7 @@ describe 'Answers', :js do
 
     scenario 'delete answer' do
       within "#answer_#{answer.id}" do
-        click_on "Delete"
+        click_on 'Delete'
       end
 
       expect(page).to     have_content 'Your answer was deleted successfully'

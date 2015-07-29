@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def hide_sidebar?
-    @hide_sidebar ||= %w{sessions registrations}.include?(controller_name) && %w{new create}.include?(action_name)
+    @hide_sidebar ||= %w(sessions registrations).include?(controller_name) && %w(new create).include?(action_name)
   end
 
   # TODO this should be refactored to store counts somewhere sensible, ie the database or perhaps session
@@ -25,7 +25,7 @@ module ApplicationHelper
     @content_counts[type]
   end
 
-  def bootstrap_class_for(flash_type: )
+  def bootstrap_class_for(flash_type:)
     case flash_type.to_s
       when 'alert'
         flash_type = 'danger'

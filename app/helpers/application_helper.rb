@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def hide_sidebar?
-    @hide_sidebar ||= %w{sessions registrations}.include?(controller_name) && action_name == 'new'
+    @hide_sidebar ||= %w{sessions registrations}.include?(controller_name) && %w{new create}.include?(action_name)
   end
 
   # TODO this should be refactored to store counts somewhere sensible, ie the database or perhaps session

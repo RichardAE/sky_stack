@@ -11,8 +11,9 @@
       <%= time_ago_in_words(@question.created_at) %> ago by <em><%= @question.user.user_name %></em>
 
       <% if owner?(object: @question) %>
-        <%= link_to('- Edit Question', edit_question_path(@question), class: 'blue-link small-link') %>
-        <%= link_to('- Delete', question_path(@question), class: 'blue-link small-link', method: :delete) %>
+        <%= link_to '- Edit Question', edit_question_path(@question), class: 'blue-link small-link' %>
+        <%= link_to '- Delete', question_path(@question), class: 'blue-link small-link', method: :delete,
+                    data: { confirm: 'Are you sure?' } %>
       <% end %>
     </span>
     <div class="clearfix"></div>

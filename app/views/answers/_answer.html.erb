@@ -8,8 +8,9 @@
       <%= time_ago_in_words(answer.created_at) %> ago by <em><%= answer.user.user_name %></em>
 
       <% if owner?(object: answer) %>
-        <%= link_to('- Edit Answer', edit_question_answer_path(@question, answer), class: 'blue-link small-link') %>
-        <%= link_to('- Delete', question_answer_path(@question, answer), class: 'blue-link small-link', method: :delete) %>
+        <%= link_to '- Edit Answer', edit_question_answer_path(@question, answer), class: 'blue-link small-link' %>
+        <%= link_to '- Delete', question_answer_path(@question, answer), class: 'blue-link small-link',
+          data: { confirm: 'Are you sure?' }, method: :delete %>
       <% end %>
     </span>
     <div class="clearfix"></div>

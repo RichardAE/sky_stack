@@ -17,7 +17,7 @@ describe 'Comments', :js do
 
       fill_in  "question_#{question.id}_comments_text", with: comment_text
       within "#question_#{question.id}_comments_form" do
-        click_on 'Create Comment'
+        click_on 'Add Comment'
       end
 
       expect(page).to have_content comment_text
@@ -44,7 +44,7 @@ describe 'Comments', :js do
 
       fill_in  "answer_#{answer.id}_comments_text", with: comment_text
       within "#answer_#{answer.id}_comments_form" do
-        click_on 'Create Comment'
+        click_on 'Add Comment'
       end
 
       expect(page).to have_content comment_text

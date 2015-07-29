@@ -1617,7 +1617,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	margin: 0;
 }
 .comment {
-	margin: 0 40px;
+	margin: 14px 40px;
 }
 .children .comment {
 	margin: 0;

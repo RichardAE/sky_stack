@@ -24,8 +24,7 @@
 <% end %>
 
 <% if @question.answers.any? %>
-  <br>
-  <div class="boxedtitle page-title"><h2><%= pluralize(@question.answers.count, 'answer') %></h2></div>
+  <div id="answers_header" class="boxedtitle page-title"><h2><%= pluralize(@question.answers.count, 'answer') %></h2></div>
 
   <%= content_tag(:div, id: "question_#{@question.id}_answers") do %>
     <%= render @question.answers %>

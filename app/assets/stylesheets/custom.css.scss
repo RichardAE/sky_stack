@@ -1,3 +1,5 @@
+/* Not very SCSS'y, it is 2am though.... TODO */
+
 .main-content {
   padding-top: 16px;
 }
@@ -25,6 +27,14 @@
 
 .comment-date {
   font-size: 0.7em;
+}
+
+#answers_header {
+  margin-top: 30px;
+}
+
+.answer {
+  margin-top: 20px;
 }
 
 /* Rails classes */

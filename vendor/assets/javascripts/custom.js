@@ -441,47 +441,6 @@ jQuery(document).ready(function($) {
 
 	});
 
-	/* Tabs */
-
-	jQuery("ul.tabs").tabs(".tab-inner-warp",{effect:"slide",fadeInSpeed:100});
-
-	jQuery("ul.tabs li").each(function(){
-		//i_color
-		var i_color = jQuery(this).parent().parent().attr("i_color");
-		jQuery(this).find("a i").css({"color":i_color});
-		//i_click
-		var i_click = jQuery(this).parent().parent().attr("i_click");
-		jQuery(this).find("a.current i").css({"color":i_click});
-
-		jQuery(this).find("a").hover(function () {
-			jQuery(this).find("i").css({"color":i_click});
-		},function () {
-			if (jQuery(this).hasClass("current")) {
-				jQuery(this).find("i").css({"color":i_click});
-			}else {
-				jQuery(this).find("i").css({"color":i_color});
-			}
-		});
-
-		jQuery(this).click(function() {
-			//i_color
-			var i_color = jQuery(this).parent().parent().attr("i_color");
-			jQuery(this).parent().find("a i").css({"color":i_color});
-			//i_click
-			var i_click = jQuery(this).parent().parent().attr("i_click");
-			jQuery(this).find("a.current i").css({"color":i_click});
-			return false;
-		});
-
-		var tab_width = jQuery(this).parent().parent().attr("tab_width");
-		if (jQuery(this).parent().parent().hasClass("tabs-vertical")) {
-			jQuery(this).parent().css({"width":tab_width+"px"});
-			jQuery(this).parent().parent().find("div.tab-inner-warp").css({"margin-left":tab_width+"px"});
-		}
-
-	});
-
-	/* Button */
 
 	jQuery(".button").each(function () {
 		var button = jQuery(this);
@@ -665,17 +624,6 @@ jQuery(document).ready(function($) {
 		});
 	}
 
-	/* Tipsy */
-
-	jQuery(".tooltip-n").tipsy({fade:true,gravity:"s"});
-	jQuery(".tooltip-s").tipsy({fade:true,gravity:"n"});
-	jQuery(".tooltip-nw").tipsy({fade:true,gravity:"nw"});
-	jQuery(".tooltip-ne").tipsy({fade:true,gravity:"ne"});
-	jQuery(".tooltip-w").tipsy({fade:true,gravity:"w"});
-	jQuery(".tooltip-e").tipsy({fade:true,gravity:"e"});
-	jQuery(".tooltip-sw").tipsy({fade:true,gravity:"sw"});
-	jQuery(".tooltip-se").tipsy({fade:true,gravity:"se"});
-
 	/* Ask Question */
 
 	jQuery(".publish-question").click(function () {
@@ -695,8 +643,6 @@ jQuery(document).ready(function($) {
 	}
 
 	jQuery("#question-title").val(getParameterByName("question_title"));
-
-	jQuery('#question_tags').tag();
 
 	var question_poll = jQuery("#question_poll:checked").length;
 	if (question_poll == 1) {
@@ -857,16 +803,7 @@ jQuery(document).ready(function($) {
 		return false;
 	});
 
-	/* Widget Menu jQuery */
-
-	jQuery(".widget_menu_jquery").onePageNav({
-		currentClass : "current_page_item",
-		changeHash : false,
-		scrollSpeed : 750,
-		scrollOffset : parseFloat(jQuery("#header").innerHeight())+60
-	});
-
-	/* Lightbox */
+  /* Lightbox */
 
 	var lightboxArgs = {
 		animation_speed: "fast",
@@ -883,10 +820,6 @@ jQuery(document).ready(function($) {
 		default_width: 940,
 		default_height: 529
 	};
-
-	jQuery("a[href$=jpg], a[href$=JPG], a[href$=jpeg], a[href$=JPEG], a[href$=png], a[href$=gif], a[href$=bmp]:has(img)").prettyPhoto(lightboxArgs);
-
-	jQuery("a[class^='prettyPhoto'], a[rel^='prettyPhoto']").prettyPhoto(lightboxArgs);
 
 	/* Page load */
 
@@ -948,14 +881,6 @@ jQuery(document).ready(function($) {
 				items        : ($max == 6?6:"")+($max == 5?5:"")+($max == 4?4:"")+($max == 3?3:"")+($max == 2?2:"")+($max == 1?1:""),
 		    });
 		});
-
-		jQuery(".bxslider").bxSlider({
-			slideWidth: 200,
-			minSlides: 4,
-			maxSlides: 4,
-			slideMargin: 30
-		});
-
 	});
 
 	/* Widget Menu jQuery */

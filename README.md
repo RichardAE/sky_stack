@@ -1,6 +1,8 @@
 Sky Stack
 =====
-This is a work in progress of an internal Q&A app for the Sky Ruby Guild.
+This was an MVP for a Q&A style app for the Sky Ruby Guild which I made in a few evenings in my spare time.
+
+Ultimately Slack proved to be an easier platform for people to ask questions, and so it wasn't used in the long term, however it was a fun app to build and was used as a reference 'best practice' app during a RoR grad scheme as well.
 
 Installation
 ----------
